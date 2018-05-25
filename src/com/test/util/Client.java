@@ -7,7 +7,7 @@ import java.net.URL;
 public class Client {  
     public static void main(String[] args) {  
         try {  
-            URL url = new URL("http://localhost:12001");  
+            URL url = new URL("http://192.168.0.12:12001");  
             HttpURLConnection con = (HttpURLConnection) url.openConnection();  
             con.setDoOutput(true);  
 //            con.setDoInput(true);  
