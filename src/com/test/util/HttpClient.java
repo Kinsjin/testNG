@@ -7,25 +7,30 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 
 public class HttpClient {
+	public static void main(String[] args){
+		//String result=doGet("http://10.2.1.216:16201//web/dma/remote_meters?meteredAreaId=6f3efd66911c4cd0a2a697cb4afc201c");
+		String result=doPost("http://192.168.0.40:9013/web/remote_meters/metered_area/data_ui/1",
+				"[\"2abfccd0f01186a6223fa005a4f90f29\"]");
+		System.out.println(result);
+	}
 	public static String doGet(String httpurl){
-		HttpURLConnection connection=null;
+		HttpURLConnection conn=null;
 		InputStream is = null;
 		BufferedReader br = null;
 		String result = null;
 		try{
 			//new a url insistance;
 			URL url = new URL(httpurl);
-			connection = (HttpURLConnection) url.openConnection();
-			connection.setRequestMethod("GET");
-			connection.setConnectTimeout(15000);
-			connection.setReadTimeout(60000);
-			connection.connect();
-			if (connection.getResponseCode()==200){
-				is = connection.getInputStream();
+			conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			//connection.setConnectTimeout(15000);
+			//connection.setReadTimeout(60000);
+			conn.connect();
+			if (conn.getResponseCode()==200){
+				is = conn.getInputStream();
 				br = new BufferedReader(new InputStreamReader(is,"UTF-8"));
 				StringBuffer sbf = new StringBuffer();
 				String temp = null;
@@ -57,31 +62,34 @@ public class HttpClient {
 					e.printStackTrace();
 				}
 			}
-			connection.disconnect();
+			conn.disconnect();
 		}
 		
 		return result;
 	}
 	public static String doPost(String httpurl,String param){
-		HttpURLConnection connection = null;
+		HttpURLConnection conn = null;
 		InputStream is=null;
 		OutputStream os=null;
 		BufferedReader br = null;
 		String result=null;
 		try {
 			URL url=new URL(httpurl);
-			connection=(HttpURLConnection)url.openConnection();
-			connection.setRequestMethod("POST");
-			connection.setConnectTimeout(15000);
-			connection.setReadTimeout(60000);
-			connection.setDoOutput(true);
-			connection.setDoInput(true);
-			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-			connection.setRequestProperty("Authorization", "Bearer da3efcbf-0845-4fe3-8aba-ee040be542c0");
-			os=connection.getOutputStream();
+			conn=(HttpURLConnection)url.openConnection();
+			conn.setRequestMethod("POST");
+			conn.setConnectTimeout(15000);
+			conn.setReadTimeout(60000);
+			conn.setDoOutput(true);
+			conn.setDoInput(true);
+			conn.setRequestProperty("Accept", "application/json, text/plain, */*");
+			conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+			conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 "
+					+ "(KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36");
+			//conn.setRequestProperty("", value);
+			os=conn.getOutputStream();
 			os.write(param.getBytes());
-			if(connection.getResponseCode()==200){
-				is=connection.getInputStream();
+			if(conn.getResponseCode()==200){
+				is=conn.getInputStream();
 				br=new BufferedReader(new InputStreamReader(is, "UTF-8"));
 				StringBuffer sbf=new StringBuffer();
 				String temp=null;
@@ -90,6 +98,8 @@ public class HttpClient {
 					sbf.append("\r\n");
 				}
 				result=sbf.toString();
+			}else {
+				result=conn.getErrorStream().toString();
 			}
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
@@ -122,7 +132,7 @@ public class HttpClient {
 					e.printStackTrace();
 				}
 			}
-			connection.disconnect();
+			conn.disconnect();
 		}
 		return result;
 	}

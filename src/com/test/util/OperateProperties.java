@@ -9,11 +9,6 @@ import java.util.Enumeration;
 import java.util.Properties;
 
 public class OperateProperties {
-	public static void main(String args[]){
-		String path="F:/Ë®¹Ü¼Ò/mengma/config/application.properties";
-		getAllProperties(path);
-		System.out.println(getValue(path,"mengma.sftp.path"));
-	}
 	public static void getAllProperties(String path){
 		Properties prop= new Properties();
 		try {

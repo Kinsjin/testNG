@@ -82,7 +82,6 @@ public class OperateExcel {
 		}
 		return excelBook2003;
 	}
-	@SuppressWarnings("deprecation")
 	public static ArrayList<ArrayList<Object>> readExcel2007(String sheetName){
 
 		XSSFRow row;
@@ -150,8 +149,7 @@ public class OperateExcel {
 		return rowList; 
 	}
 	
-    @SuppressWarnings("deprecation")
-	public static ArrayList<ArrayList<Object>> readExcel2003(String sheetName){  
+    public static ArrayList<ArrayList<Object>> readExcel2003(String sheetName){  
         ArrayList<ArrayList<Object>> rowList = new ArrayList<ArrayList<Object>>();  
         ArrayList<Object> colList;  
         excelSheet2003 = excelBook2003.getSheet(sheetName);  
@@ -216,8 +214,7 @@ public class OperateExcel {
         }//end for i             
         return rowList; 
     }
-    @SuppressWarnings("deprecation")
-	public static String readCell2007(int rownum,int cellnum){
+    public static String readCell2007(int rownum,int cellnum){
     	cell2007= excelSheet2007.getRow(rownum).getCell(cellnum);
     	String value;
     	 switch(cell2007.getCellType()){  
@@ -246,8 +243,7 @@ public class OperateExcel {
         }// end switch  
     	return value;
     }
-    @SuppressWarnings("deprecation")
-   	public static String readCell2003(int rownum,int cellnum){
+    public static String readCell2003(int rownum,int cellnum){
        	cell2003= excelSheet2003.getRow(rownum).getCell(cellnum);
        	String value;
        	 switch(cell2003.getCellType()){  

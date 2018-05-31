@@ -16,20 +16,6 @@ public class OperateOracle {
 	PreparedStatement pstm=null;
 	ResultSet rs=null;
 	//Connect to Oracle
-	public static void main(String args[]){
-		String sql="SELECT * FROM BL_KZFL_DEF";
-		String insertSql="insert into BL_KZFL_DEF values(?,?,?)";
-		String delSql="DELETE FROM BL_KZFL_DEF WHERE OBJECTID=?";
-		String updateSql="UPDATE BL_KZFL_DEF set OBJECTID=?,CODE=?,NAME=? where OBJECTID=?";
-		String str[]={"10","B","test"};
-		OperateOracle oo = new OperateOracle();
-		oo.selectData(sql);
-		oo.SelectData2(sql);
-		oo.insertData(insertSql, "11","C","test1");
-		oo.insertData2(insertSql, str);
-		oo.delData(delSql, "10");
-		oo.updateData(updateSql, "12","D","test2","11");
-	}
 	public Connection getConnection(){
 		try {
 			Class.forName(DRIVER);
