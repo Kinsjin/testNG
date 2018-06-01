@@ -18,12 +18,6 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 
 public class HttpsClient {
-	public static void main(String[] args){  
-	    //String s=doGet("https://192.168.0.40:9015/regular_revenue/get/290453395");  
-	    String s=doPost("https://192.168.0.40:9015/bl/userWaterSum/rawData/1483200000000/1514584800000",
-	    		"[\"290453387\"]"); 	    
-	    System.out.println(s);  
-	} 
 	public static String doGet(String requestUrl){
 		HttpsURLConnection conn=null;
 		InputStream is=null;

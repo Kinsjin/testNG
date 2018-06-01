@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry excluding="src/|config/" kind="src" path=""/>
+	<classpathentry excluding="src/|config/|lib/" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="lib" path="E:/Maven_Repo/com/oracle/ojdbc7/12.1.0.1.0/ojdbc7-12.1.0.1.0.jar"/>
@@ -78,74 +78,6 @@
 	<classpathentry kind="lib" path="E:/test/jar/cobertura-2.1.1.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/cobertura-maven-plugin-2.7.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/codemodel-2.6.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.common.util-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.common.util-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.icity.util.logging.Logger-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.icity.util.logging.Logger-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.bigdata.DataPumper-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.bigdata.HBaseAccessAdapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.bl.FeignService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.bl.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.bl.RestService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.fm.FeignService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.fm.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.fm.RestService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.gis.FeignService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.gis.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.gis.RestService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.hierarchyMapping.FeignService-2.0.0-20161020.100634-1.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.hierarchyMapping.FeignService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.hierarchyMapping.Model-2.0.0-20161020.100631-1.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.hierarchyMapping.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.hierarchyMapping.RestService-2.0.0-20161020.100632-1.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.hierarchyMapping.RestService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.kafka.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.Model-2.0.0-20161020.100613-4.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rest.flowmeter.analysis.FeignService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rest.flowmeter.analysis.RestService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rest.pm.FeignService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rest.pm.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rest.pm.RestService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rm.FeignService-2.0.0-20161020.100629-1.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rm.FeignService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rm.Model-2.0.0-20161020.100626-1.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rm.Model-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rm.RestService-2.0.0-20161020.100628-1.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.rm.RestService-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.Utils-2.0.0-20161020.100623-3.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.common.Utils-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.Esb-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.nb.Common-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.nb.DB-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.nb.Persistence-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.nb.Report-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.nb.Service-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.nb.TestCase-2.0.0-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.rm.Client-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.rm.Service-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.sangao.Adapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.sangao.MockedAdapter-0.0.1-20160322.060321-4.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.sangao.MockedAdapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.sanke.Adapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.sanke.Starter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.port.SankeSangaoCoordinator-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.business.Common-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.business.Impl-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.business.Model-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.business.Service-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.input.RestAdapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.input.StaticWeb-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.input.WebUIAdapter-0.0.1-20160315.031721-1.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.input.WebUIAdapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.Main-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.Management-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.persistence.Adapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.persistence.JPAImpl-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.persistence.model.Oracle-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.persistence.model.SqlServer-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.sourcedata.Adapter-0.0.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/com.inesa.wm.rm.sourcedata.AdapterImp-0.0.1-SNAPSHOT.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/common-java5-2.18.1.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/common-java5-2.19.1.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/common-junit3-2.18.1.jar"/>
@@ -262,7 +194,7 @@
 	<classpathentry kind="lib" path="E:/test/jar/governator-api-1.12.10.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/governator-core-1.12.10.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/groovy-2.4.4.jar"/>
-	<classpathentry kind="lib" path="E:/test/jar/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="E:/test/jar/gson-2.3.1.jar" sourcepath="E:/Maven_Repo/com/google/code/gson/gson/2.3.1/gson-2.3.1-sources.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/guava-12.0.1.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/guava-12.0.1-sources.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/guava-15.0.jar"/>
@@ -925,5 +857,6 @@
 	<classpathentry kind="lib" path="E:/test/jar/xz-1.5.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/zkclient-0.7.jar"/>
 	<classpathentry kind="lib" path="E:/test/jar/zookeeper-3.4.6.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

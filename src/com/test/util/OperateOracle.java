@@ -1,6 +1,7 @@
 package com.test.util;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -31,9 +32,15 @@ public class OperateOracle {
 		return conn;
 	}
 	//Select
-	public void selectData(String sql){
+	public ResultSet selectData(String sql){
 		conn=getConnection();
 		try {
+			DatabaseMetaData metadata = conn.getMetaData();
+			ResultSet rs2 = metadata.getColumns(null, null, "BL_KZFL_DEF", null);
+			while (rs2.next()) {
+			String colName = rs.getString("COLUMN_NAME");
+			System.out.println(colName);
+			} 
 			pstm=conn.prepareStatement(sql);
 			rs=pstm.executeQuery();
 			while(rs.next()){
@@ -48,9 +55,10 @@ public class OperateOracle {
 		}finally {
 			releaseResource();
 		}
+		return rs;
 	}
 	
-	public void SelectData2(String sql) {
+	public void selectDataCount(String sql) {
 		conn = getConnection();
 		int count = 0;
         try {

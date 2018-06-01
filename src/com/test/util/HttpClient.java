@@ -10,13 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HttpClient {
-	public static void main(String[] args){
-		//String result=doGet("http://10.2.1.216:16201//web/dma/remote_meters?meteredAreaId=6f3efd66911c4cd0a2a697cb4afc201c");
-		String result=doPost("http://192.168.0.40:9013/web/remote_meters/metered_area/data_ui/1",
-				"[\"2abfccd0f01186a6223fa005a4f90f29\"]");
-		System.out.println(result);
-	}
-	public static String doGet(String httpurl){
+	public String doGet(String httpurl){
 		HttpURLConnection conn=null;
 		InputStream is = null;
 		BufferedReader br = null;
