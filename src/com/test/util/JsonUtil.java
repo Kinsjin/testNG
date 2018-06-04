@@ -19,16 +19,17 @@ public class JsonUtil {
 	private static JsonParser jp;
 	private static JsonObject jo;
 	private static JsonArray ja;
+	//根据title获取非数组的Json内容
 	public static List<String> jsonElementValueHeader(String source,String title,String...strs){
 		List<String> list=new ArrayList<String>();
 		jp=new JsonParser();
 		try {
 			jo=((JsonObject) jp.parse(source)).get(title).getAsJsonObject();
-			System.out.println(jo);
+			//System.out.println(jo);
 			if(!jo.isJsonArray()){
 				for(int i=0;i<strs.length;i++){
 					list.add(jo.get(strs[i]).getAsString());
-					System.out.println(list.get(i));
+					//System.out.println(list.get(i));
 				}
 			}
 			return list;
@@ -41,16 +42,17 @@ public class JsonUtil {
 		}
 		return null;
 	}
+	//没有title获取非数组的Json内容
 	public static List<String> jsonElementValue(String source,String...strs){
 		List<String> list=new ArrayList<String>();
 		jp=new JsonParser();
 		try {
 			jo=(JsonObject) jp.parse(source).getAsJsonObject();
-			System.out.println(jo);
+			//System.out.println(jo);
 			if(!jo.isJsonArray()){
 				for(int i=0;i<strs.length;i++){
 					list.add(jo.get(strs[i]).getAsString());
-					System.out.println(list.get(i));
+					//System.out.println(list.get(i));
 				}
 			}
 			return list;
@@ -63,6 +65,7 @@ public class JsonUtil {
 		}
 		return null;
 	}
+	//获取数组json内容
 	public static void jsonArrayValue(String path,String str){
 		//Map map=new HashMap();
 		jp=new JsonParser();
@@ -90,10 +93,5 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 		//return null;
-	}
-	public static void main(String args[]){
-		JsonUtil.jsonElementValueHeader("{\"header\":{\"category\": \"it\",\"languages\": \"id\",\"pop\": \"null\"}}","header","category","pop","languages");
-		JsonUtil.jsonElementValue("{\"category\": \"it\",\"languages\": \"id\",\"pop\": \"null\"}","category","pop","languages");
-		//JsonUtil.jsonArrayValue("C:/Users/jinwx.ICITY/Desktop/new4.json","languages");
 	}
 }

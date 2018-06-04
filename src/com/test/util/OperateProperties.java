@@ -6,11 +6,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class OperateProperties {
-	public static void getAllProperties(String path){
+	//获取所有的配置内容
+	public static Map<String,String> getAllProperties(String path){
 		Properties prop= new Properties();
+		Map<String,String> map=new HashMap<String, String>();
 		try {
 			InputStream input= new BufferedInputStream(new FileInputStream(path));
 			prop.load(input);
@@ -18,8 +22,10 @@ public class OperateProperties {
 			while(en.hasMoreElements()){
 				String keyWord=(String) en.nextElement();
 				String valueWord=prop.getProperty(keyWord);
-				System.out.println(keyWord+"="+valueWord);
+				map.put(keyWord, valueWord);
+				//System.out.println(keyWord+"="+valueWord);
 			}
+			return map;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -27,7 +33,9 @@ public class OperateProperties {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return null;
 	}
+	//根据key获取value
 	public static String getValue(String path,String keyWord){
 		String value=null;
 		Properties prop=null;
