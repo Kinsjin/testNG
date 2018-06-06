@@ -27,8 +27,7 @@ public class OperateOracle {
 		USERNAME=map.get("datasource.username");
 		PASSWORD=map.get("datasource.password");
 		URL=map.get("datasource.url");
-		DRIVER=map.get("datasource.driver-class-name");
-		
+		DRIVER=map.get("datasource.driver-class-name");		
 	}
 	public Connection getConnection(){
 		try {
@@ -65,7 +64,12 @@ public class OperateOracle {
 		return rs;
 	}
 	public void getDataMeter(ResultSet rs){
-		
+		try {
+			rs.getString("Count");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	//数据库计数
 	public String selectDataCount(String sql) {

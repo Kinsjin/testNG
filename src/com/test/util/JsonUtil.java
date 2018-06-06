@@ -18,7 +18,12 @@ import com.google.gson.stream.JsonReader;
 public class JsonUtil {
 	private static JsonParser jp;
 	private static JsonObject jo;
-	private static JsonArray ja;
+	private static JsonArray subObject;
+	private static JsonObject child;
+	public static void setJson(String str){
+		jp=new JsonParser();
+		jo = (JsonObject) jp.parse(str);
+	}
 	//根据title获取非数组的Json内容
 	public static List<String> jsonElementValueHeader(String source,String title,String...strs){
 		List<String> list=new ArrayList<String>();
@@ -65,33 +70,38 @@ public class JsonUtil {
 		}
 		return null;
 	}
+	//获取子节点
+	public static JsonArray getJsonArray(String source,String str){
+			jp=new JsonParser();	
+			try {
+				jo = (JsonObject) jp.parse(source);
+				if(jo.get(str).isJsonArray()){
+					subObject=jo.get(str).getAsJsonArray();
+					//System.out.println(subObject);
+				}
+				return subObject;
+			} catch (JsonIOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonSyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
 	//获取数组json内容
-	public static void jsonArrayValue(String path,String str){
-		//Map map=new HashMap();
-		jp=new JsonParser();
+	public static JsonObject jsonArrayValue(JsonArray source,int index){
+		//System.out.println(source.get(index).getAsJsonObject());
 		try {
-			jo = (JsonObject) jp.parse(new FileReader(path));
-			ja=jo.get("languages").getAsJsonArray();
-			if(ja.isJsonArray()){
-			for (int i = 0; i < ja.size(); i++) {
-				System.out.println("-----------------");
-				//创建一个JsonObject，从array的下标获取，get() 返回JsonElement类型
-				//这里不用强转，而用 getAsJsonObject() 进行转换
-				JsonObject subObject=ja.get(i).getAsJsonObject();
-				System.out.println("id="+subObject.get("id").getAsInt());
-				//System.out.println("name="+subObject.get("name").getAsString());
-				//System.out.println("ide="+subObject.get("ide").getAsString());
-			}}
+			child=source.get(index).getAsJsonObject();
+			//System.out.println(child);
 		} catch (JsonIOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JsonSyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		//return null;
+		return child;
 	}
 }
