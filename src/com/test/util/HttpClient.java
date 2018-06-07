@@ -20,6 +20,7 @@ public class HttpClient {
 			URL url = new URL(httpurl);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
+			conn.setRequestProperty("Cookie","UISESSION=E452BA4243666D5F369E31A74A941E71");
 			//connection.setConnectTimeout(15000);
 			//connection.setReadTimeout(60000);
 			conn.connect();
@@ -61,7 +62,7 @@ public class HttpClient {
 		
 		return result;
 	}
-	public static String doPost(String httpurl,String param){
+	public String doPost(String httpurl,String param){
 		HttpURLConnection conn = null;
 		InputStream is=null;
 		OutputStream os=null;
@@ -79,6 +80,7 @@ public class HttpClient {
 			conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 			conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 "
 					+ "(KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36");
+			conn.setRequestProperty("Cookie","UISESSION=E452BA4243666D5F369E31A74A941E71");
 			//conn.setRequestProperty("", value);
 			os=conn.getOutputStream();
 			os.write(param.getBytes());

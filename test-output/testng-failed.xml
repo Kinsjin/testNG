@@ -5,9 +5,9 @@
     <classes>
       <class name="com.test.suit.discover.InfoSummaryTests">
         <methods>
-          <include name="dmaAllHeaders"/>
-          <include name="dmaAllHPCheck"/>
           <include name="declare"/>
+          <include name="rbalarm_Count"/>
+          <include name="rmalarm_Count"/>
         </methods>
       </class> <!-- com.test.suit.discover.InfoSummaryTests -->
     </classes>

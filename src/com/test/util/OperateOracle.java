@@ -1,38 +1,26 @@
 package com.test.util;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
+import com.test.setting.GlobalSetting;
+
 public class OperateOracle {
-	private static String USERNAME="wm2";
-	private static String PASSWORD="wm2";
-	private static String DRIVER="oracle.jdbc.OracleDriver";
-	private static String URL="jdbc:oracle:thin:@192.168.0.31:1521/wmpdb";
-	private static Map<String,String> map;
 	Connection conn=null;
 	PreparedStatement pstm=null;
 	ResultSet rs=null;
 	//Connect to Oracle
-	public OperateOracle(){
-		map=OperateProperties.getAllProperties("E:/test/workspace/testNG/config/applilcation.properties");
-		USERNAME=map.get("datasource.username");
-		PASSWORD=map.get("datasource.password");
-		URL=map.get("datasource.url");
-		DRIVER=map.get("datasource.driver-class-name");		
-	}
 	public Connection getConnection(){
+		GlobalSetting gs=new GlobalSetting();
 		try {
-			Class.forName(DRIVER);
-			conn=DriverManager.getConnection(URL, USERNAME, PASSWORD);
+			Class.forName(gs.getOracleDriver());
+			conn=DriverManager.getConnection(gs.getOracleUrl(), gs.getOracleUsername(), gs.getOraclePassWD());
 			System.out.println("成功连接数据库");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

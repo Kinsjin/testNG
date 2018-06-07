@@ -5,19 +5,20 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-public class OperateProperties {
+public  class OperateProperties {
 	//获取所有的配置内容
 	public static Map<String,String> getAllProperties(String path){
 		Properties prop= new Properties();
 		Map<String,String> map=new HashMap<String, String>();
 		try {
 			InputStream input= new BufferedInputStream(new FileInputStream(path));
-			prop.load(input);
+			prop.load(new InputStreamReader(input,"UTF-8"));
 			Enumeration<?> en=prop.propertyNames();
 			while(en.hasMoreElements()){
 				String keyWord=(String) en.nextElement();
@@ -42,7 +43,7 @@ public class OperateProperties {
 		prop=new Properties();
 		try {
 			InputStream input= new BufferedInputStream(new FileInputStream(path));
-			prop.load(input);
+			prop.load(new InputStreamReader(input,"UTF-8"));
 			value=prop.getProperty(keyWord);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

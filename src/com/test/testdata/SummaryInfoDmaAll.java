@@ -1,56 +1,19 @@
 package com.test.testdata;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.test.util.HttpClient;
 import com.test.util.JsonUtil;
 
 public class SummaryInfoDmaAll {
 	public static JsonArray headers;
-	public Map<String, Object> SHPmap;
-	public Map<String, Object> SXHmap;
-	public Map<String, Object> SHKmap;
-	public Map<String, Object> SPTmap;
-	public Map<String, Object> SCNmap;
-	public Map<String, Object> SZBmap;
-	public Map<String, Object> SYPmap;
-	public Map<String, Object> SBSmap;
-	public Map<String, Object> SMHmap;
-	public Map<String, Object> SQDmap;
-	public Map<String, Object> SSBmap;
-	public ArrayList<Map<String, Object>> Slist;
-	public ArrayList<Map<String, Object>> Zlist;
-	public JsonArray ZHAN;
-	public Map<String, Object> ZQXmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-	//public Map<String, Object> SSBmap;
-
-
+	public ArrayList<Map<String, Object>> DSlist;
+	//public Map<String,Map<String, Object>> Zlist;
+	public ArrayList<Map<String, Object>> DZlist;	
 	/*suo：name
 	 * 表个数：value
 	 * dma个数 ：dmaValue
@@ -67,121 +30,119 @@ public class SummaryInfoDmaAll {
 	 * 肯特故障表个数:kfvalue
 	 */
 	public  void setInfoDmaAll(){
+		JsonArray ZHAN;	
+		int count=0;
 		int j=0;
 		JsonArray entries;
 		String DMAALLURL=new HttpClient().doGet("http://192.168.0.40:9013/webInfo/DmaAll");
 		headers=JsonUtil.getJsonArray(DMAALLURL, "headers");
 		entries=JsonUtil.getJsonArray(DMAALLURL, "entries");
-		Slist=new ArrayList<Map<String, Object>>();
-		SHPmap=new HashMap<String, Object>();
-		SXHmap=new HashMap<String, Object>();
-		SHKmap=new HashMap<String, Object>();
-		SPTmap=new HashMap<String, Object>();
-		SCNmap=new HashMap<String, Object>();
-		SZBmap=new HashMap<String, Object>();
-		SYPmap=new HashMap<String, Object>();
-		SBSmap=new HashMap<String, Object>();
-		SMHmap=new HashMap<String, Object>();
-		SQDmap=new HashMap<String, Object>();
-		SSBmap=new HashMap<String, Object>();
-		Slist.add(SHPmap);
-		Slist.add(SXHmap);
-		Slist.add(SHKmap);
-		Slist.add(SPTmap);
-		Slist.add(SCNmap);
-		Slist.add(SZBmap);
-		Slist.add(SYPmap);
-		Slist.add(SBSmap);
-		Slist.add(SMHmap);
-		Slist.add(SQDmap);
-		Slist.add(SSBmap);
-		ZQXmap=new HashMap<String, Object>();
-		Zlist.add(ZQXmap);
+		//SUO
+
+		Map<String, Object> SHPmap=new HashMap<String, Object>();//黄浦所
+		Map<String, Object> SXHmap=new HashMap<String, Object>();//徐汇所
+		Map<String, Object> SHKmap=new HashMap<String, Object>();//虹口所
+		Map<String, Object> SPTmap=new HashMap<String, Object>();//普陀所
+		Map<String, Object> SCNmap=new HashMap<String, Object>();//长宁所
+		Map<String, Object> SZBmap=new HashMap<String, Object>();//闸北所
+		Map<String, Object> SYPmap=new HashMap<String, Object>();//杨浦所
+		Map<String, Object> SBSmap=new HashMap<String, Object>();//宝山所
+		Map<String, Object> SMHmap=new HashMap<String, Object>();//闵行所
+		Map<String, Object> SQDmap=new HashMap<String, Object>();//青东所
+		Map<String, Object> SSBmap=new HashMap<String, Object>();//松北所
+		DSlist=new ArrayList<Map<String, Object>>(Arrays.asList(SHPmap,SXHmap,SHKmap,
+				SPTmap,SCNmap,SZBmap,SYPmap,SBSmap,SMHmap,SQDmap,SSBmap));
+		//ZHAN		
+		Map<String, Object> ZQXmap=new HashMap<String, Object>();//瞿溪站
+		Map<String, Object> ZBSYmap=new HashMap<String, Object>();//半淞园站
+		Map<String, Object> ZXZmap=new HashMap<String, Object>();//新闸站
+		Map<String, Object> ZSZmap=new HashMap<String, Object>();//上中站
+		Map<String, Object> ZLHmap=new HashMap<String, Object>();//龙华站
+		Map<String, Object> ZTYQmap=new HashMap<String, Object>();//天钥桥站
+		Map<String, Object> ZHYmap=new HashMap<String, Object>();//汉阳站
+		Map<String, Object> ZQYmap=new HashMap<String, Object>();//曲阳站
+		Map<String, Object> ZSNmap=new HashMap<String, Object>();//淞南站
+		Map<String, Object> ZDCmap=new HashMap<String, Object>();//大场站
+		Map<String, Object> ZWNmap=new HashMap<String, Object>();//武宁站
+		Map<String, Object> ZZBmap=new HashMap<String, Object>();//真北站
+		Map<String, Object> ZYXmap=new HashMap<String, Object>();//银杏站
+		Map<String, Object> ZDZABmap=new HashMap<String, Object>();//东诸安浜站
+		Map<String, Object> ZFRJmap=new HashMap<String, Object>();//芙蓉江站
+		Map<String, Object> ZJAXCmap=new HashMap<String, Object>();//静安新城站
+		Map<String, Object> ZPTmap=new HashMap<String, Object>();//平塘站
+		Map<String, Object> ZCJmap=new HashMap<String, Object>();//长江站
+		Map<String, Object> ZPSmap=new HashMap<String, Object>();//普善站
+		Map<String, Object> ZCZmap=new HashMap<String, Object>();//场中站
+		Map<String, Object> ZHTmap=new HashMap<String, Object>();//沪太站
+		Map<String, Object> ZMYmap=new HashMap<String, Object>();//密云站
+		Map<String, Object> ZJPmap=new HashMap<String, Object>();//江浦站
+		Map<String, Object> ZSGmap=new HashMap<String, Object>();//市光站
+		Map<String, Object> ZGTmap=new HashMap<String, Object>();//顾太站
+		Map<String, Object> ZLDmap=new HashMap<String, Object>();//罗店站
+		Map<String, Object> ZBYmap=new HashMap<String, Object>();//宝杨站
+		Map<String, Object> ZLJmap=new HashMap<String, Object>();//罗泾站
+		Map<String, Object> ZJCmap=new HashMap<String, Object>();//江川站
+		Map<String, Object> ZXINZmap=new HashMap<String, Object>();//莘庄站
+		Map<String, Object> ZWJmap=new HashMap<String, Object>();//吴泾站
+		Map<String, Object> ZXJmap=new HashMap<String, Object>();//徐泾站
+		Map<String, Object> ZHXmap=new HashMap<String, Object>();//华新站
+		Map<String, Object> ZHCmap=new HashMap<String, Object>();//华漕站
+		Map<String, Object> ZSJmap=new HashMap<String, Object>();//泗泾站
+		Map<String, Object> ZJTmap=new HashMap<String, Object>();//九亭站
+		Map<String, Object> ZXQmap=new HashMap<String, Object>();//新桥站
+		DZlist=new ArrayList<Map<String, Object>>(Arrays.asList(ZQXmap,ZBSYmap,ZXZmap,
+				ZSZmap,ZLHmap,ZTYQmap,ZHYmap,ZQYmap,ZSNmap,ZDCmap,ZWNmap,ZZBmap,ZYXmap,
+				ZDZABmap,ZFRJmap,ZJAXCmap,ZPTmap,ZCJmap,ZPSmap,ZCZmap,ZHTmap,ZMYmap,
+				ZJPmap,ZSGmap,ZGTmap,ZLDmap,ZBYmap,ZLJmap,ZJCmap,ZXINZmap,ZWJmap,ZXJmap,
+				ZHXmap,ZHCmap,ZSJmap,ZJTmap,ZXQmap));		
+		//Zlist.add(ZQXmap);
 		for(int i=0;i<entries.size();i++){
 			//获取所有所的信息
-			Slist.get(i).put("name", JsonUtil.jsonArrayValue(entries,i).get("name").getAsString());
-			Slist.get(i).put("value", JsonUtil.jsonArrayValue(entries,i).get("value").getAsInt());
-			Slist.get(i).put("dmaValue", JsonUtil.jsonArrayValue(entries,i).get("dmaValue").getAsInt());
-			Slist.get(i).put("fvalue", JsonUtil.jsonArrayValue(entries,i).get("fvalue").getAsInt());
-			Slist.get(i).put("svalue", JsonUtil.jsonArrayValue(entries,i).get("svalue").getAsInt());
-			Slist.get(i).put("tvalue", JsonUtil.jsonArrayValue(entries,i).get("tvalue").getAsInt());
-			Slist.get(i).put("lvalue", JsonUtil.jsonArrayValue(entries,i).get("lvalue").getAsInt());
-			Slist.get(i).put("nvalue", JsonUtil.jsonArrayValue(entries,i).get("nvalue").getAsInt());
-			Slist.get(i).put("kvalue", JsonUtil.jsonArrayValue(entries,i).get("kvalue").getAsInt());
-			Slist.get(i).put("sfvalue", JsonUtil.jsonArrayValue(entries,i).get("sfvalue").getAsInt());
-			Slist.get(i).put("tfvalue", JsonUtil.jsonArrayValue(entries,i).get("tfvalue").getAsInt());
-			Slist.get(i).put("lfvalue", JsonUtil.jsonArrayValue(entries,i).get("lfvalue").getAsInt());
-			Slist.get(i).put("nfvalue", JsonUtil.jsonArrayValue(entries,i).get("nfvalue").getAsInt());
-			Slist.get(i).put("kfvalue", JsonUtil.jsonArrayValue(entries,i).get("kfvalue").getAsInt());
+			DSlist.get(i).put("name", JsonUtil.jsonArrayValue(entries,i).get("name").getAsString());
+			DSlist.get(i).put("value", JsonUtil.jsonArrayValue(entries,i).get("value").getAsInt());
+			DSlist.get(i).put("dmaValue", JsonUtil.jsonArrayValue(entries,i).get("dmaValue").getAsInt());
+			DSlist.get(i).put("fvalue", JsonUtil.jsonArrayValue(entries,i).get("fvalue").getAsInt());
+			DSlist.get(i).put("svalue", JsonUtil.jsonArrayValue(entries,i).get("svalue").getAsInt());
+			DSlist.get(i).put("tvalue", JsonUtil.jsonArrayValue(entries,i).get("tvalue").getAsInt());
+			DSlist.get(i).put("lvalue", JsonUtil.jsonArrayValue(entries,i).get("lvalue").getAsInt());
+			DSlist.get(i).put("nvalue", JsonUtil.jsonArrayValue(entries,i).get("nvalue").getAsInt());
+			DSlist.get(i).put("kvalue", JsonUtil.jsonArrayValue(entries,i).get("kvalue").getAsInt());
+			DSlist.get(i).put("sfvalue", JsonUtil.jsonArrayValue(entries,i).get("sfvalue").getAsInt());
+			DSlist.get(i).put("tfvalue", JsonUtil.jsonArrayValue(entries,i).get("tfvalue").getAsInt());
+			DSlist.get(i).put("lfvalue", JsonUtil.jsonArrayValue(entries,i).get("lfvalue").getAsInt());
+			DSlist.get(i).put("nfvalue", JsonUtil.jsonArrayValue(entries,i).get("nfvalue").getAsInt());
+			DSlist.get(i).put("kfvalue", JsonUtil.jsonArrayValue(entries,i).get("kfvalue").getAsInt());
 			//获取所有站点的信息
 			for(ZHAN=JsonUtil.getJsonArray(JsonUtil.jsonArrayValue(entries,i).toString(),"children");;j++){
-				JsonObject QUXIZHAN=JsonUtil.jsonArrayValue(ZHAN, j);
-				System.out.println(QUXIZHAN.toString());
-				//String ZQXNAME=QUXIZHAN.get("name").getAsString();
-				int ZQXvalueCount = JsonUtil.jsonArrayValue(ZHAN, j).get("value").getAsInt();
-				int ZQXdmaValueCount = QUXIZHAN.get("dmaValue").getAsInt();
-				int ZQXfvalueCount = QUXIZHAN.get("fvalue").getAsInt();
-				int ZQXsvalueCount = QUXIZHAN.get("svalue").getAsInt();
-				int ZQXtvalueCount = QUXIZHAN.get("tvalue").getAsInt();
-				int ZQXlvalueCount = QUXIZHAN.get("lvalue").getAsInt();
-				int ZQXnvalueCount = QUXIZHAN.get("nvalue").getAsInt();
-				int ZQXkvalueCount = QUXIZHAN.get("kvalue").getAsInt();
-				int ZQXsfvalueCount = QUXIZHAN.get("sfvalue").getAsInt();
-				int ZQXtfvalueCount = QUXIZHAN.get("tfvalue").getAsInt();
-				int ZQXlfvalueCount = QUXIZHAN.get("lfvalue").getAsInt();
-				int ZQXnfvalueCount = QUXIZHAN.get("nfvalue").getAsInt();
-				int ZQXkfvalueCount = QUXIZHAN.get("kfvalue").getAsInt();
-				Zlist.get(j).put("name", JsonUtil.jsonArrayValue(ZHAN,j).get("value").getAsInt());
-				ZQXmap.put("value", JsonUtil.jsonArrayValue(ZHAN,j).get("value").getAsInt());
-				ZQXmap.put("dmaValue", ZQXdmaValueCount);
-				ZQXmap.put("fvalue", ZQXfvalueCount);
-				ZQXmap.put("svalue", ZQXsvalueCount);
-				ZQXmap.put("tvalue", ZQXtvalueCount);
-				ZQXmap.put("lvalue", ZQXlvalueCount);
-				ZQXmap.put("nvalue", ZQXnvalueCount);
-				ZQXmap.put("kvalue", ZQXkvalueCount);
-				ZQXmap.put("sfvalue", ZQXsfvalueCount);
-				ZQXmap.put("tfvalue", ZQXtfvalueCount);
-				ZQXmap.put("lfvalue", ZQXlfvalueCount);
-				ZQXmap.put("nfvalue", ZQXnfvalueCount);
-				ZQXmap.put("kfvalue", ZQXkfvalueCount);
+				//JsonObject QUXIZHAN=JsonUtil.jsonArrayValue(ZHAN, j);
+				//System.out.println(QUXIZHAN.toString());
+				DZlist.get(count).put("name", JsonUtil.jsonArrayValue(ZHAN,j).get("name").getAsString());
+				DZlist.get(count).put("value", JsonUtil.jsonArrayValue(ZHAN,j).get("value").getAsInt());
+				DZlist.get(count).put("dmaValue", JsonUtil.jsonArrayValue(ZHAN, j).get("dmaValue").getAsInt());
+				DZlist.get(count).put("fvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("fvalue").getAsInt());
+				DZlist.get(count).put("svalue", JsonUtil.jsonArrayValue(ZHAN, j).get("svalue").getAsInt());
+				DZlist.get(count).put("tvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("tvalue").getAsInt());
+				DZlist.get(count).put("lvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("lvalue").getAsInt());
+				DZlist.get(count).put("nvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("nvalue").getAsInt());
+				DZlist.get(count).put("kvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("kvalue").getAsInt());
+				DZlist.get(count).put("sfvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("sfvalue").getAsInt());
+				DZlist.get(count).put("tfvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("tfvalue").getAsInt());
+				DZlist.get(count).put("lfvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("lfvalue").getAsInt());
+				DZlist.get(count).put("nfvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("nfvalue").getAsInt());
+				DZlist.get(count).put("kfvalue", JsonUtil.jsonArrayValue(ZHAN, j).get("kfvalue").getAsInt());
+				count++;
 				if(j==ZHAN.size()-1){
 					j=0;
 					break;
 				}
+				//System.out.println(count);
 			}
+			//System.out.println(count);
 		}
-		
-		
 		//String ZQXNAME=QUXIZHAN.get("name").getAsString();
 		//int ZQXvalueCount = QUXIZHAN.get("value").getAsInt();
-		//int ZQXdmaValueCount = QUXIZHAN.get("dmaValue").getAsInt();
-		//int ZQXfvalueCount = QUXIZHAN.get("fvalue").getAsInt();
-		//int ZQXsvalueCount = QUXIZHAN.get("svalue").getAsInt();
-		//int ZQXtvalueCount = QUXIZHAN.get("tvalue").getAsInt();
-		//int ZQXlvalueCount = QUXIZHAN.get("lvalue").getAsInt();
-	//	int ZQXnvalueCount = QUXIZHAN.get("nvalue").getAsInt();
-		//int ZQXkvalueCount = QUXIZHAN.get("kvalue").getAsInt();
-		//int ZQXsfvalueCount = QUXIZHAN.get("sfvalue").getAsInt();
-		//int ZQXtfvalueCount = QUXIZHAN.get("tfvalue").getAsInt();
-		//int ZQXlfvalueCount = QUXIZHAN.get("lfvalue").getAsInt();
-		//int ZQXnfvalueCount = QUXIZHAN.get("nfvalue").getAsInt();
-		//int ZQXkfvalueCount = QUXIZHAN.get("kfvalue").getAsInt();
 		//ZQXmap=new HashMap<String, Object>();
 		//ZQXmap.put("name", ZQXNAME);
-		//ZQXmap.put("value", ZQXvalueCount);
-		//ZQXmap.put("dmaValue", ZQXdmaValueCount);
-		//ZQXmap.put("fvalue", ZQXfvalueCount);
-		//ZQXmap.put("svalue", ZQXsvalueCount);
-		//ZQXmap.put("tvalue", ZQXtvalueCount);
-		//ZQXmap.put("lvalue", ZQXlvalueCount);
-		//ZQXmap.put("nvalue", ZQXnvalueCount);
-		//ZQXmap.put("kvalue", ZQXkvalueCount);
-		//ZQXmap.put("sfvalue", ZQXsfvalueCount);
-		//ZQXmap.put("tfvalue", ZQXtfvalueCount);
-		//ZQXmap.put("lfvalue", ZQXlfvalueCount);
-		//ZQXmap.put("nfvalue", ZQXnfvalueCount);
-		//ZQXmap.put("kfvalue", ZQXkfvalueCount);
-		//ZQXmap.put("children", ZQXchildern);
+
 	}
 }
