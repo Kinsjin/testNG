@@ -17,7 +17,7 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 
 public class Common_API { 
 	public static void main(String[] args) throws HttpException, IOException { 
-		HttpClient httpClient = new HttpClient(); 
+		/*HttpClient httpClient = new HttpClient(); 
 		//需要验证 
 		UsernamePasswordCredentials creds = new UsernamePasswordCredentials("test", "123");
 	    System.out.println(creds.getUserName());
@@ -43,6 +43,33 @@ public class Common_API {
 			} 
 		} finally { 
 			method.releaseConnection(); 
-		} 
+		} */
+		int i,j,k=0;
+		String a="abcde",b="cedfghp";
+		String c="";
+		for(i=0;i<a.length();i++){
+			for(j=0;j<b.length();j++){
+				if(a.charAt(i)==b.charAt(j)){ 
+					a=a.replace(a.charAt(i),'0');
+					b=b.replace(b.charAt(j),'0');
+				}
+			}
+		}//找出两个字符串中相同的字符，改为0
+		for(i=0;i<a.length();i++){ 
+			if(a.charAt(i)!='0'){
+				c+="0";
+				c=c.replace(c.charAt(k),a.charAt(i));
+				k++;
+				}
+			}
+		for(j=0;j<b.length();j++){ 
+			if(b.charAt(j)!='0'){
+				c+="0";
+				c=c.replace(c.charAt(k),b.charAt(j));
+				k++;
+				}
+			}
+		//将余下的不同的字符添加到字符串c中，c即为你想要的字符串。
+		System.out.println(c);//输出：abfghp
 	} 
 }

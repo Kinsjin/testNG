@@ -17,7 +17,7 @@ public class JsonUtil {
 		jp=new JsonParser();
 		jo = (JsonObject) jp.parse(str);
 	}
-	//根据title获取非数组的Json内容
+	//闈炴暟缁勬牴鎹畉itle璇诲彇鏁版嵁
 	public static List<String> jsonElementValueHeader(String source,String title,String...strs){
 		List<String> list=new ArrayList<String>();
 		jp=new JsonParser();
@@ -40,7 +40,7 @@ public class JsonUtil {
 		}
 		return null;
 	}
-	//没有title获取非数组的Json内容
+	//闈炴暟缁勬棤title璇诲彇鏁版嵁
 	public static List<String> jsonElementValue(String source,String...strs){
 		List<String> list=new ArrayList<String>();
 		jp=new JsonParser();
@@ -63,7 +63,7 @@ public class JsonUtil {
 		}
 		return null;
 	}
-	//获取子节点
+	//璇诲彇鏁扮粍
 	public static JsonArray getJsonArray(String source,String str){
 			jp=new JsonParser();	
 			try {
@@ -82,7 +82,7 @@ public class JsonUtil {
 			}
 			return null;
 		}
-	//获取数组json内容
+	//锟斤拷取锟斤拷锟斤拷json锟斤拷锟斤拷
 	public static JsonObject jsonArrayValue(JsonArray source,int index){
 		//System.out.println(source.get(index).getAsJsonObject());
 		try {

@@ -21,7 +21,7 @@ public class OperateOracle {
 		try {
 			Class.forName(gs.getOracleDriver());
 			conn=DriverManager.getConnection(gs.getOracleUrl(), gs.getOracleUsername(), gs.getOraclePassWD());
-			System.out.println("³É¹¦Á¬½ÓÊı¾İ¿â");
+			System.out.println("å¼€å§‹æ•°æ®åº“è¿æ¥");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,17 +49,17 @@ public class OperateOracle {
 		}finally {
 			releaseResource();
 		}
-		return rs;
+		return null;
 	}
 	public void getDataMeter(ResultSet rs){
 		try {
-			rs.getString("Count");
+			rs.getString("COUNT");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	//Êı¾İ¿â¼ÆÊı
+	//ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½
 	public String selectDataCount(String sql) {
 		conn = getConnection();
 		int count = 0;
@@ -77,7 +77,7 @@ public class OperateOracle {
         return Integer.toString(count);
     }
 	
-	//»ñÈ¡±í×Ö¶ÎºÍ±í×Ö¶ÎÀàĞÍ
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ö¶ÎºÍ±ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½
 	public Map<String, String> getColumnsType(String sql){
 		conn = getConnection();
 		Map<String, String> map=new HashMap<String, String>();
@@ -170,7 +170,7 @@ public class OperateOracle {
 			}
 			if(conn!=null){
 				conn.close();
-				System.out.println("¶Ï¿ªÊı¾İ¿âÁ¬½Ó");
+				System.out.println("ç»“æŸæ•°æ®åº“è¿æ¥");
 			}
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
