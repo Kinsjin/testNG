@@ -20,7 +20,7 @@ public class HttpClient {
 			URL url = new URL(httpurl);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Cookie","UISESSION=2243E755E8A9D0B77D54DBEBEBFA5E1B");
+			conn.setRequestProperty("Cookie","UISESSION=4AAD485F53EDFBD81F71178E12B1ECFD");
 			//connection.setConnectTimeout(15000);
 			//connection.setReadTimeout(60000);
 			conn.connect();

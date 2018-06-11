@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.test.setting.GlobalSetting;
@@ -14,7 +16,7 @@ import com.test.setting.GlobalSetting;
 public class OperateOracle {
 	Connection conn=null;
 	PreparedStatement pstm=null;
-	ResultSet rs=null;
+	public ResultSet rs=null;
 	//Connect to Oracle
 	public Connection getConnection(){
 		GlobalSetting gs=new GlobalSetting();
@@ -31,35 +33,41 @@ public class OperateOracle {
 		}
 		return conn;
 	}
-	//Select
-	public ResultSet selectData(String sql){
+	//Select 获取所有内容
+	public List<Map<String,String>> selectData(String sql){
 		conn=getConnection();
+		List<Map<String,String>> list = new ArrayList<Map<String,String>>();
 		try {
 			pstm=conn.prepareStatement(sql);
 			rs=pstm.executeQuery();
-		//	while(rs.next()){
-		//		String OBJECTID=rs.getString("OBJECTID");
-		//		String CODE=rs.getString("CODE");
-		//		String NAME=rs.getString("NAME");
-		//		System.out.println(OBJECTID + "\t" + CODE + "\t" + NAME);
-		//	}
+			ResultSetMetaData rsmd=rs.getMetaData();
+			int cols_len=rsmd.getColumnCount();
+			String value;
+			int count=0;
+			while(rs.next()){							
+				Map<String, String> map = new HashMap<String, String>();
+				for(int i=1;i<=cols_len;i++){				
+					String columnName =rsmd.getColumnLabel(i);
+					//System.out.println(rsmd.getColumnTypeName(i));
+					if(rs.getString(columnName)!=null){
+						value=rs.getString(columnName).replace(" ", "");
+					}else {value=null;}
+					map.put(columnName, value);
+					//System.out.println("i: "+i);
+				}
+				list.add(count, map);
+				count ++;
+			}
+			//System.out.println(count);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			releaseResource();
 		}
-		return null;
+		return list;
 	}
-	public void getDataMeter(ResultSet rs){
-		try {
-			rs.getString("COUNT");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	//���ݿ����
+	//根据内容获取数量
 	public String selectDataCount(String sql) {
 		conn = getConnection();
 		int count = 0;
@@ -77,7 +85,7 @@ public class OperateOracle {
         return Integer.toString(count);
     }
 	
-	//��ȡ���ֶκͱ��ֶ�����
+	//查找列名+列类型
 	public Map<String, String> getColumnsType(String sql){
 		conn = getConnection();
 		Map<String, String> map=new HashMap<String, String>();

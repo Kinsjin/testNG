@@ -20,19 +20,19 @@ public class SummaryInfoAll {
 	private static String rbalarm_count_sql="";
 	public static List<String> listAll;
 	public static void setInfoAll(){
-		  //´ÓÅäÖÃÎÄ¼şÖĞ¶ÁÈ¡sqlÓï¾ä
+		  //è·å–sqlè¯­å¥
 		rm_count_sql=OperateProperties.getValue("E:/test/workspace/testNG/config/SQLS", "remote_meter_count");
 		rb_count_sql=OperateProperties.getValue("E:/test/workspace/testNG/config/SQLS", "revenue_meter_count");
 		uasso_count_sql=OperateProperties.getValue("E:/test/workspace/testNG/config/SQLS", "uasso_count_sql");
 		rmalarm_count_sql=OperateProperties.getValue("E:/test/workspace/testNG/config/SQLS", "rmalarm_count_sql");
 		rbalarm_count_sql=OperateProperties.getValue("E:/test/workspace/testNG/config/SQLS", "rbalarm_count_sql");
-		//´ÓÊı¾İ¿âÖĞ»ñµÃ¿¼ºË±íÊıÁ¿
+		//ä»æ•°æ®åº“è·å–æ•°é‡
 		rm_count=new OperateOracle().selectDataCount(rm_count_sql);
 		rb_count=new OperateOracle().selectDataCount(rb_count_sql);
 		uasso_count=new OperateOracle().selectDataCount(uasso_count_sql);
 		rmalarm_count=new OperateOracle().selectDataCount(rmalarm_count_sql);
 		rbalarm_count=new OperateOracle().selectDataCount(rbalarm_count_sql);
-		//´Ó½Ó¿ÚÖĞ»ñÈ¡ÊıÁ¿
+		//ä»æ¥å£è·å–å®é™…å€¼
 		String strall=new HttpClient().doGet("http://192.168.0.40:9013/webInfo/All");
 		listAll=JsonUtil.jsonElementValue(strall,"khbNum",
 				"unitNum","unallocatedNum","khbAlarm","unitAlarm");

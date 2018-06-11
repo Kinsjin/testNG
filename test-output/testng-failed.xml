@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.test.suit.discover.DeviceList_RmeterTests">
+      <class name="com.test.suit.discover.InfoSummaryTests">
         <methods>
-          <include name="beforeTest"/>
-          <include name="noasso"/>
+          <include name="dmaAllHPCheck"/>
+          <include name="declare"/>
         </methods>
-      </class> <!-- com.test.suit.discover.DeviceList_RmeterTests -->
+      </class> <!-- com.test.suit.discover.InfoSummaryTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

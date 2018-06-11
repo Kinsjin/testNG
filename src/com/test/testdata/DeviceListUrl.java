@@ -1,12 +1,8 @@
 package com.test.testdata;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.test.util.HttpClient;
 import com.test.util.JsonUtil;
 import com.test.util.OperateOracle;
-import com.test.util.OperateProperties;
 
 public class DeviceListUrl {
 	private  String  url_tree;

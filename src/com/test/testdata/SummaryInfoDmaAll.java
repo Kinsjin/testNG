@@ -14,20 +14,20 @@ public class SummaryInfoDmaAll {
 	public ArrayList<Map<String, Object>> DSlist;
 	//public Map<String,Map<String, Object>> Zlist;
 	public ArrayList<Map<String, Object>> DZlist;	
-	/*suo£ºname
-	 * ±í¸öÊı£ºvalue
-	 * dma¸öÊı £ºdmaValue
-	 * ¹ÊÕÏ¸öÊı£ºfvalue
-	 * É½¿Æ±íÊıÁ¿£ºsvalue
-	 * ÍØ°²ĞÅ±í¸öÊı:tvalue
-	 * Á¢ĞÅ±í¸öÊı:lvalue
-	 * Äş²¨¶«º£±í¸öÊı:nvalue
-	 * ¿ÏÌØ±í¸öÊı:kvalue
-	 * É½¿Æ¹ÊÕÏ±í¸öÊı£ºsfvalue
-	 * ÍØ°²ĞÅ¹ÊÕÏ±í¸öÊıtfvalue
-	 * Á¢ĞÅ¹ÊÕÏ±í¸öÊı:lfvalue
-	 * Äş²¨¶«º£¹ÊÕÏ±í¸öÊı:nfvalue
-	 * ¿ÏÌØ¹ÊÕÏ±í¸öÊı:kfvalue
+	/*åç§°ï¼šname
+	 * è¡¨æ•°é‡ï¼švalue
+	 * dmaæ•°é‡ï¼šdmaValue
+	 * æ•…éšœæ•°é‡ï¼šfvalue
+	 * å±±ç§‘æ•°é‡ï¼šsvalue
+	 * æ‹“å®‰ä¿¡æ•°é‡:tvalue
+	 * ç«‹ä¿¡æ•°é‡:lvalue
+	 * å®æ³¢ä¸œæµ·è€ƒæ ¸è¡¨æ•°é‡:nvalue
+	 * è‚¯ç‰¹æ•°é‡:kvalue
+	 * å±±ç§‘æ•…éšœæ•°é‡sfvalue
+	 * æ‹“å®‰ä¿¡æ•…éšœæ•°é‡tfvalue
+	 * ç«‹ä¿¡æ•…éšœæ•°é‡:lfvalue
+	 * å®æ³¢ä¸œæµ·æ•…éšœæ•°é‡:nfvalue
+	 * è‚¯ç‰¹æ•…éšœæ•°é‡:kfvalue
 	 */
 	public  void setInfoDmaAll(){
 		JsonArray ZHAN;	
@@ -39,57 +39,57 @@ public class SummaryInfoDmaAll {
 		entries=JsonUtil.getJsonArray(DMAALLURL, "entries");
 		//SUO
 
-		Map<String, Object> SHPmap=new HashMap<String, Object>();//»ÆÆÖËù
-		Map<String, Object> SXHmap=new HashMap<String, Object>();//Ğì»ãËù
-		Map<String, Object> SHKmap=new HashMap<String, Object>();//ºç¿ÚËù
-		Map<String, Object> SPTmap=new HashMap<String, Object>();//ÆÕÍÓËù
-		Map<String, Object> SCNmap=new HashMap<String, Object>();//³¤ÄşËù
-		Map<String, Object> SZBmap=new HashMap<String, Object>();//Õ¢±±Ëù
-		Map<String, Object> SYPmap=new HashMap<String, Object>();//ÑîÆÖËù
-		Map<String, Object> SBSmap=new HashMap<String, Object>();//±¦É½Ëù
-		Map<String, Object> SMHmap=new HashMap<String, Object>();//ãÉĞĞËù
-		Map<String, Object> SQDmap=new HashMap<String, Object>();//Çà¶«Ëù
-		Map<String, Object> SSBmap=new HashMap<String, Object>();//ËÉ±±Ëù
+		Map<String, Object> SHPmap=new HashMap<String, Object>();//é»„æµ¦
+		Map<String, Object> SXHmap=new HashMap<String, Object>();//å¾æ±‡
+		Map<String, Object> SHKmap=new HashMap<String, Object>();//è™¹å£
+		Map<String, Object> SPTmap=new HashMap<String, Object>();//æ™®é™€
+		Map<String, Object> SCNmap=new HashMap<String, Object>();//é•¿å®
+		Map<String, Object> SZBmap=new HashMap<String, Object>();//é—¸åŒ—
+		Map<String, Object> SYPmap=new HashMap<String, Object>();//æ¨æµ¦
+		Map<String, Object> SBSmap=new HashMap<String, Object>();//å®å±±
+		Map<String, Object> SMHmap=new HashMap<String, Object>();//é—µè¡Œ
+		Map<String, Object> SQDmap=new HashMap<String, Object>();//é’ä¸œ
+		Map<String, Object> SSBmap=new HashMap<String, Object>();//æ¾åŒ—
 		DSlist=new ArrayList<Map<String, Object>>(Arrays.asList(SHPmap,SXHmap,SHKmap,
 				SPTmap,SCNmap,SZBmap,SYPmap,SBSmap,SMHmap,SQDmap,SSBmap));
 		//ZHAN		
-		Map<String, Object> ZQXmap=new HashMap<String, Object>();//öÄÏªÕ¾
-		Map<String, Object> ZBSYmap=new HashMap<String, Object>();//°ëäÁÔ°Õ¾
-		Map<String, Object> ZXZmap=new HashMap<String, Object>();//ĞÂÕ¢Õ¾
-		Map<String, Object> ZSZmap=new HashMap<String, Object>();//ÉÏÖĞÕ¾
-		Map<String, Object> ZLHmap=new HashMap<String, Object>();//Áú»ªÕ¾
-		Map<String, Object> ZTYQmap=new HashMap<String, Object>();//ÌìÔ¿ÇÅÕ¾
-		Map<String, Object> ZHYmap=new HashMap<String, Object>();//ººÑôÕ¾
-		Map<String, Object> ZQYmap=new HashMap<String, Object>();//ÇúÑôÕ¾
-		Map<String, Object> ZSNmap=new HashMap<String, Object>();//äÁÄÏÕ¾
-		Map<String, Object> ZDCmap=new HashMap<String, Object>();//´ó³¡Õ¾
-		Map<String, Object> ZWNmap=new HashMap<String, Object>();//ÎäÄşÕ¾
-		Map<String, Object> ZZBmap=new HashMap<String, Object>();//Õæ±±Õ¾
-		Map<String, Object> ZYXmap=new HashMap<String, Object>();//ÒøĞÓÕ¾
-		Map<String, Object> ZDZABmap=new HashMap<String, Object>();//¶«Öî°²äºÕ¾
-		Map<String, Object> ZFRJmap=new HashMap<String, Object>();//Ü½ÈØ½­Õ¾
-		Map<String, Object> ZJAXCmap=new HashMap<String, Object>();//¾²°²ĞÂ³ÇÕ¾
-		Map<String, Object> ZPTmap=new HashMap<String, Object>();//Æ½ÌÁÕ¾
-		Map<String, Object> ZCJmap=new HashMap<String, Object>();//³¤½­Õ¾
-		Map<String, Object> ZPSmap=new HashMap<String, Object>();//ÆÕÉÆÕ¾
-		Map<String, Object> ZCZmap=new HashMap<String, Object>();//³¡ÖĞÕ¾
-		Map<String, Object> ZHTmap=new HashMap<String, Object>();//»¦Ì«Õ¾
-		Map<String, Object> ZMYmap=new HashMap<String, Object>();//ÃÜÔÆÕ¾
-		Map<String, Object> ZJPmap=new HashMap<String, Object>();//½­ÆÖÕ¾
-		Map<String, Object> ZSGmap=new HashMap<String, Object>();//ÊĞ¹âÕ¾
-		Map<String, Object> ZGTmap=new HashMap<String, Object>();//¹ËÌ«Õ¾
-		Map<String, Object> ZLDmap=new HashMap<String, Object>();//ÂŞµêÕ¾
-		Map<String, Object> ZBYmap=new HashMap<String, Object>();//±¦ÑîÕ¾
-		Map<String, Object> ZLJmap=new HashMap<String, Object>();//ÂŞãşÕ¾
-		Map<String, Object> ZJCmap=new HashMap<String, Object>();//½­´¨Õ¾
+		Map<String, Object> ZQXmap=new HashMap<String, Object>();//ï¿½ï¿½ÏªÕ¾
+		Map<String, Object> ZBSYmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Ô°Õ¾
+		Map<String, Object> ZXZmap=new HashMap<String, Object>();//ï¿½ï¿½Õ¢Õ¾
+		Map<String, Object> ZSZmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZLHmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZTYQmap=new HashMap<String, Object>();//ï¿½ï¿½Ô¿ï¿½ï¿½Õ¾
+		Map<String, Object> ZHYmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZQYmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZSNmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZDCmap=new HashMap<String, Object>();//ï¿½ï¿½Õ¾
+		Map<String, Object> ZWNmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZZBmap=new HashMap<String, Object>();//ï¿½æ±±Õ¾
+		Map<String, Object> ZYXmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZDZABmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½î°²ï¿½Õ¾
+		Map<String, Object> ZFRJmap=new HashMap<String, Object>();//Ü½ï¿½Ø½ï¿½Õ¾
+		Map<String, Object> ZJAXCmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½Õ¾
+		Map<String, Object> ZPTmap=new HashMap<String, Object>();//Æ½ï¿½ï¿½Õ¾
+		Map<String, Object> ZCJmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZPSmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZCZmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZHTmap=new HashMap<String, Object>();//ï¿½ï¿½Ì«Õ¾
+		Map<String, Object> ZMYmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZJPmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZSGmap=new HashMap<String, Object>();//ï¿½Ğ¹ï¿½Õ¾
+		Map<String, Object> ZGTmap=new HashMap<String, Object>();//ï¿½ï¿½Ì«Õ¾
+		Map<String, Object> ZLDmap=new HashMap<String, Object>();//ï¿½Şµï¿½Õ¾
+		Map<String, Object> ZBYmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZLJmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZJCmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
 		Map<String, Object> ZXINZmap=new HashMap<String, Object>();//İ·×¯Õ¾
-		Map<String, Object> ZWJmap=new HashMap<String, Object>();//ÎâãşÕ¾
-		Map<String, Object> ZXJmap=new HashMap<String, Object>();//ĞìãşÕ¾
-		Map<String, Object> ZHXmap=new HashMap<String, Object>();//»ªĞÂÕ¾
-		Map<String, Object> ZHCmap=new HashMap<String, Object>();//»ªäîÕ¾
-		Map<String, Object> ZSJmap=new HashMap<String, Object>();//ãôãşÕ¾
-		Map<String, Object> ZJTmap=new HashMap<String, Object>();//¾ÅÍ¤Õ¾
-		Map<String, Object> ZXQmap=new HashMap<String, Object>();//ĞÂÇÅÕ¾
+		Map<String, Object> ZWJmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZXJmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZHXmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZHCmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZSJmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
+		Map<String, Object> ZJTmap=new HashMap<String, Object>();//ï¿½ï¿½Í¤Õ¾
+		Map<String, Object> ZXQmap=new HashMap<String, Object>();//ï¿½ï¿½ï¿½ï¿½Õ¾
 		DZlist=new ArrayList<Map<String, Object>>(Arrays.asList(ZQXmap,ZBSYmap,ZXZmap,
 				ZSZmap,ZLHmap,ZTYQmap,ZHYmap,ZQYmap,ZSNmap,ZDCmap,ZWNmap,ZZBmap,ZYXmap,
 				ZDZABmap,ZFRJmap,ZJAXCmap,ZPTmap,ZCJmap,ZPSmap,ZCZmap,ZHTmap,ZMYmap,
@@ -97,7 +97,7 @@ public class SummaryInfoDmaAll {
 				ZHXmap,ZHCmap,ZSJmap,ZJTmap,ZXQmap));		
 		//Zlist.add(ZQXmap);
 		for(int i=0;i<entries.size();i++){
-			//»ñÈ¡ËùÓĞËùµÄĞÅÏ¢
+			//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			DSlist.get(i).put("name", JsonUtil.jsonArrayValue(entries,i).get("name").getAsString());
 			DSlist.get(i).put("value", JsonUtil.jsonArrayValue(entries,i).get("value").getAsInt());
 			DSlist.get(i).put("dmaValue", JsonUtil.jsonArrayValue(entries,i).get("dmaValue").getAsInt());
@@ -112,7 +112,7 @@ public class SummaryInfoDmaAll {
 			DSlist.get(i).put("lfvalue", JsonUtil.jsonArrayValue(entries,i).get("lfvalue").getAsInt());
 			DSlist.get(i).put("nfvalue", JsonUtil.jsonArrayValue(entries,i).get("nfvalue").getAsInt());
 			DSlist.get(i).put("kfvalue", JsonUtil.jsonArrayValue(entries,i).get("kfvalue").getAsInt());
-			//»ñÈ¡ËùÓĞÕ¾µãµÄĞÅÏ¢
+			//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			for(ZHAN=JsonUtil.getJsonArray(JsonUtil.jsonArrayValue(entries,i).toString(),"children");;j++){
 				//JsonObject QUXIZHAN=JsonUtil.jsonArrayValue(ZHAN, j);
 				//System.out.println(QUXIZHAN.toString());
