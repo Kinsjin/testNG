@@ -29,7 +29,7 @@ public class SummaryInfoDmaAll {
 	 * 宁波东海故障数量:nfvalue
 	 * 肯特故障数量:kfvalue
 	 */
-	public  void setInfoDmaAll(){
+	public void setInfoDmaAll(){
 		JsonArray ZHAN;	
 		int count=0;
 		int j=0;
@@ -38,7 +38,6 @@ public class SummaryInfoDmaAll {
 		headers=JsonUtil.getJsonArray(DMAALLURL, "headers");
 		entries=JsonUtil.getJsonArray(DMAALLURL, "entries");
 		//SUO
-
 		Map<String, Object> SHPmap=new HashMap<String, Object>();//黄浦
 		Map<String, Object> SXHmap=new HashMap<String, Object>();//徐汇
 		Map<String, Object> SHKmap=new HashMap<String, Object>();//虹口
@@ -53,43 +52,43 @@ public class SummaryInfoDmaAll {
 		DSlist=new ArrayList<Map<String, Object>>(Arrays.asList(SHPmap,SXHmap,SHKmap,
 				SPTmap,SCNmap,SZBmap,SYPmap,SBSmap,SMHmap,SQDmap,SSBmap));
 		//ZHAN		
-		Map<String, Object> ZQXmap=new HashMap<String, Object>();//��Ϫվ
-		Map<String, Object> ZBSYmap=new HashMap<String, Object>();//����԰վ
-		Map<String, Object> ZXZmap=new HashMap<String, Object>();//��բվ
-		Map<String, Object> ZSZmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZLHmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZTYQmap=new HashMap<String, Object>();//��Կ��վ
-		Map<String, Object> ZHYmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZQYmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZSNmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZDCmap=new HashMap<String, Object>();//��վ
-		Map<String, Object> ZWNmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZZBmap=new HashMap<String, Object>();//�汱վ
-		Map<String, Object> ZYXmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZDZABmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZFRJmap=new HashMap<String, Object>();//ܽ�ؽ�վ
-		Map<String, Object> ZJAXCmap=new HashMap<String, Object>();//�����³�վ
-		Map<String, Object> ZPTmap=new HashMap<String, Object>();//ƽ��վ
-		Map<String, Object> ZCJmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZPSmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZCZmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZHTmap=new HashMap<String, Object>();//��̫վ
-		Map<String, Object> ZMYmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZJPmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZSGmap=new HashMap<String, Object>();//�й�վ
-		Map<String, Object> ZGTmap=new HashMap<String, Object>();//��̫վ
-		Map<String, Object> ZLDmap=new HashMap<String, Object>();//�޵�վ
-		Map<String, Object> ZBYmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZLJmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZJCmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZXINZmap=new HashMap<String, Object>();//ݷׯվ
-		Map<String, Object> ZWJmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZXJmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZHXmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZHCmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZSJmap=new HashMap<String, Object>();//����վ
-		Map<String, Object> ZJTmap=new HashMap<String, Object>();//��ͤվ
-		Map<String, Object> ZXQmap=new HashMap<String, Object>();//����վ
+		Map<String, Object> ZQXmap=new HashMap<String, Object>();//瞿溪站
+		Map<String, Object> ZBSYmap=new HashMap<String, Object>();//半淞园站
+		Map<String, Object> ZXZmap=new HashMap<String, Object>();//新闸站
+		Map<String, Object> ZSZmap=new HashMap<String, Object>();//上中站
+		Map<String, Object> ZLHmap=new HashMap<String, Object>();//龙华站
+		Map<String, Object> ZTYQmap=new HashMap<String, Object>();//天钥桥站
+		Map<String, Object> ZHYmap=new HashMap<String, Object>();//汉阳站
+		Map<String, Object> ZQYmap=new HashMap<String, Object>();//曲阳站
+		Map<String, Object> ZSNmap=new HashMap<String, Object>();//淞南站
+		Map<String, Object> ZDCmap=new HashMap<String, Object>();//大场站
+		Map<String, Object> ZWNmap=new HashMap<String, Object>();//武宁站
+		Map<String, Object> ZZBmap=new HashMap<String, Object>();//真北站
+		Map<String, Object> ZYXmap=new HashMap<String, Object>();//银杏站
+		Map<String, Object> ZDZABmap=new HashMap<String, Object>();//东诸安浜站
+		Map<String, Object> ZFRJmap=new HashMap<String, Object>();//芙蓉江站
+		Map<String, Object> ZJAXCmap=new HashMap<String, Object>();//静安新城站
+		Map<String, Object> ZPTmap=new HashMap<String, Object>();//平塘站
+		Map<String, Object> ZCJmap=new HashMap<String, Object>();//长江站
+		Map<String, Object> ZPSmap=new HashMap<String, Object>();//普善站
+		Map<String, Object> ZCZmap=new HashMap<String, Object>();//场中站
+		Map<String, Object> ZHTmap=new HashMap<String, Object>();//沪太站
+		Map<String, Object> ZMYmap=new HashMap<String, Object>();//密云站
+		Map<String, Object> ZJPmap=new HashMap<String, Object>();//江浦站
+		Map<String, Object> ZSGmap=new HashMap<String, Object>();//市光站
+		Map<String, Object> ZGTmap=new HashMap<String, Object>();//顾太站
+		Map<String, Object> ZLDmap=new HashMap<String, Object>();//罗店站
+		Map<String, Object> ZBYmap=new HashMap<String, Object>();//宝杨站
+		Map<String, Object> ZLJmap=new HashMap<String, Object>();//罗泾站
+		Map<String, Object> ZJCmap=new HashMap<String, Object>();//江川站
+		Map<String, Object> ZXINZmap=new HashMap<String, Object>();//ݷ莘庄站
+		Map<String, Object> ZWJmap=new HashMap<String, Object>();//吴泾站
+		Map<String, Object> ZXJmap=new HashMap<String, Object>();//徐泾站
+		Map<String, Object> ZHXmap=new HashMap<String, Object>();//华新站
+		Map<String, Object> ZHCmap=new HashMap<String, Object>();//华漕站
+		Map<String, Object> ZSJmap=new HashMap<String, Object>();//泗泾站
+		Map<String, Object> ZJTmap=new HashMap<String, Object>();//九亭站
+		Map<String, Object> ZXQmap=new HashMap<String, Object>();//新桥站
 		DZlist=new ArrayList<Map<String, Object>>(Arrays.asList(ZQXmap,ZBSYmap,ZXZmap,
 				ZSZmap,ZLHmap,ZTYQmap,ZHYmap,ZQYmap,ZSNmap,ZDCmap,ZWNmap,ZZBmap,ZYXmap,
 				ZDZABmap,ZFRJmap,ZJAXCmap,ZPTmap,ZCJmap,ZPSmap,ZCZmap,ZHTmap,ZMYmap,
@@ -97,7 +96,7 @@ public class SummaryInfoDmaAll {
 				ZHXmap,ZHCmap,ZSJmap,ZJTmap,ZXQmap));		
 		//Zlist.add(ZQXmap);
 		for(int i=0;i<entries.size();i++){
-			//��ȡ����������Ϣ
+			//所的表和数量信息
 			DSlist.get(i).put("name", JsonUtil.jsonArrayValue(entries,i).get("name").getAsString());
 			DSlist.get(i).put("value", JsonUtil.jsonArrayValue(entries,i).get("value").getAsInt());
 			DSlist.get(i).put("dmaValue", JsonUtil.jsonArrayValue(entries,i).get("dmaValue").getAsInt());
@@ -112,7 +111,7 @@ public class SummaryInfoDmaAll {
 			DSlist.get(i).put("lfvalue", JsonUtil.jsonArrayValue(entries,i).get("lfvalue").getAsInt());
 			DSlist.get(i).put("nfvalue", JsonUtil.jsonArrayValue(entries,i).get("nfvalue").getAsInt());
 			DSlist.get(i).put("kfvalue", JsonUtil.jsonArrayValue(entries,i).get("kfvalue").getAsInt());
-			//��ȡ����վ�����Ϣ
+			//站表和数量信息
 			for(ZHAN=JsonUtil.getJsonArray(JsonUtil.jsonArrayValue(entries,i).toString(),"children");;j++){
 				//JsonObject QUXIZHAN=JsonUtil.jsonArrayValue(ZHAN, j);
 				//System.out.println(QUXIZHAN.toString());

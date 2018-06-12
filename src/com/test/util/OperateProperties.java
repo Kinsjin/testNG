@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Properties;
 
 public  class OperateProperties {
-	//»ñÈ¡ËùÓĞµÄÅäÖÃÄÚÈİ
+	//è·å–æ–‡ä»¶ä¸­æ‰€æœ‰çš„å±æ€§
 	public static Map<String,String> getAllProperties(String path){
 		Properties prop= new Properties();
 		Map<String,String> map=new HashMap<String, String>();
@@ -36,7 +36,7 @@ public  class OperateProperties {
 		}
 		return null;
 	}
-	//¸ù¾İkey»ñÈ¡value
+	//æ ¹æ®æŒ‡å®škeyè·å–value
 	public static String getValue(String path,String keyWord){
 		String value=null;
 		Properties prop=null;

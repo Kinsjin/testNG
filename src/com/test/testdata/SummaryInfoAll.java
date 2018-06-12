@@ -32,10 +32,11 @@ public class SummaryInfoAll {
 		uasso_count=new OperateOracle().selectDataCount(uasso_count_sql);
 		rmalarm_count=new OperateOracle().selectDataCount(rmalarm_count_sql);
 		rbalarm_count=new OperateOracle().selectDataCount(rbalarm_count_sql);
+		
 		//从接口获取实际值
 		String strall=new HttpClient().doGet("http://192.168.0.40:9013/webInfo/All");
 		listAll=JsonUtil.jsonElementValue(strall,"khbNum",
 				"unitNum","unallocatedNum","khbAlarm","unitAlarm");
-		System.out.println(listAll.get(0)+"\t"+listAll.get(1)+"\t"+listAll.get(2)+"\t"+listAll.get(3)+"\t"+listAll.get(4));
+		//System.out.println(listAll.get(0)+"\t"+listAll.get(1)+"\t"+listAll.get(2)+"\t"+listAll.get(3)+"\t"+listAll.get(4));
 	} 
 }
