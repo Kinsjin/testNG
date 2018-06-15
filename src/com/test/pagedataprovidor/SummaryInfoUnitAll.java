@@ -1,4 +1,4 @@
-package com.test.testdata;
+package com.test.pagedataprovidor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,12 +33,12 @@ public class SummaryInfoUnitAll {
 		int count=0;
 		int j=0;
 		JsonArray entries;
-		String UnitALLURL=new HttpClient().doGet("http://192.168.0.40:9013/webInfo/UnitAll");
+		String UnitALLURL=new HttpClient().doGet("http://192.168.0.40:9013/webInfo/UnitAll","");
 		headers=JsonUtil.getJsonArray(UnitALLURL, "headers");
 		entries=JsonUtil.getJsonArray(UnitALLURL, "entries");
 		//SUO��ʼ��
-		Map<String, Object> SHPmap=new HashMap<String, Object>();//������
-		Map<String, Object> SXHmap=new HashMap<String, Object>();//�����
+		Map<String, Object> SHPmap=new HashMap<String, Object>();//黄浦
+		Map<String, Object> SXHmap=new HashMap<String, Object>();//徐汇
 		Map<String, Object> SHKmap=new HashMap<String, Object>();//�����
 		Map<String, Object> SPTmap=new HashMap<String, Object>();//������
 		Map<String, Object> SCNmap=new HashMap<String, Object>();//������

@@ -5,8 +5,10 @@
     <classes>
       <class name="com.test.suit.discover.InfoSummaryTests">
         <methods>
-          <include name="dmaAllHPCheck"/>
+          <include name="rbmeterCount"/>
+          <include name="noareaCount"/>
           <include name="declare"/>
+          <include name="rmmeterCount"/>
         </methods>
       </class> <!-- com.test.suit.discover.InfoSummaryTests -->
     </classes>

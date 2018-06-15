@@ -16,10 +16,11 @@ import com.test.setting.GlobalSetting;
 public class OperateOracle {
 	Connection conn=null;
 	PreparedStatement pstm=null;
+	private static GlobalSetting gs = GlobalSetting.getInstance();
 	public ResultSet rs=null;
 	//Connect to Oracle
 	public Connection getConnection(){
-		GlobalSetting gs=new GlobalSetting();
+		//GlobalSetting gs=new GlobalSetting();
 		try {
 			Class.forName(gs.getOracleDriver());
 			conn=DriverManager.getConnection(gs.getOracleUrl(), gs.getOracleUsername(), gs.getOraclePassWD());

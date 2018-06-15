@@ -1,4 +1,4 @@
-package com.test.testdata;
+package com.test.pagedataprovidor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,11 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.JsonArray;
+import com.test.setting.GlobalSetting;
 import com.test.util.HttpClient;
 import com.test.util.JsonUtil;
 
 public class SummaryInfoDmaAll {
 	public static JsonArray headers;
+	private static GlobalSetting globalSetting = GlobalSetting.getInstance();
 	public ArrayList<Map<String, Object>> DSlist;
 	//public Map<String,Map<String, Object>> Zlist;
 	public ArrayList<Map<String, Object>> DZlist;	
@@ -34,7 +36,7 @@ public class SummaryInfoDmaAll {
 		int count=0;
 		int j=0;
 		JsonArray entries;
-		String DMAALLURL=new HttpClient().doGet("http://192.168.0.40:9013/webInfo/DmaAll");
+		String DMAALLURL=new HttpClient().doGet("http://192.168.0.40:9013/webInfo/DmaAll",globalSetting.getCookie());
 		headers=JsonUtil.getJsonArray(DMAALLURL, "headers");
 		entries=JsonUtil.getJsonArray(DMAALLURL, "entries");
 		//SUO

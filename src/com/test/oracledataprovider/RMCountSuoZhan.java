@@ -1,4 +1,4 @@
-package com.test.dataprovider;
+package com.test.oracledataprovider;
 
 import java.util.HashMap;
 import java.util.List;

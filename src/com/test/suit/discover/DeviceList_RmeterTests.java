@@ -2,7 +2,7 @@ package com.test.suit.discover;
 
 import org.testng.annotations.Test;
 
-import com.test.testdata.DeviceListUrl;
+import com.test.pagedataprovidor.DeviceListUrl;
 import com.test.util.OperateProperties;
 
 import java.io.UnsupportedEncodingException;

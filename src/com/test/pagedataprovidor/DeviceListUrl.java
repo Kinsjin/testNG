@@ -1,4 +1,4 @@
-package com.test.testdata;
+package com.test.pagedataprovidor;
 
 import com.test.util.HttpClient;
 import com.test.util.JsonUtil;
@@ -22,7 +22,7 @@ public class DeviceListUrl {
 	
 	//设备列表树结构
 	public String  getDeviceListTree(){
-		url_tree=new HttpClient().doGet("http://192.168.0.40:9013/web/hierarchy/view?ruleName=remotemeter_dailyreport");
+		url_tree=new HttpClient().doGet("http://192.168.0.40:9013/web/hierarchy/view?ruleName=remotemeter_dailyreport","");
 		return url_tree;
 	}
 	//设备列表考核表列表
@@ -37,7 +37,7 @@ public class DeviceListUrl {
 	}
 	//设备列表未分配列表
 	public String getDeviceListUrl3(){
-		url3_get=new HttpClient().doGet("http://192.168.0.40:9013/web/remote_meters/data_ui/3");
+		url3_get=new HttpClient().doGet("http://192.168.0.40:9013/web/remote_meters/data_ui/3","");
 		return url3_get;
 	}
 	public String setTreeInfo(){

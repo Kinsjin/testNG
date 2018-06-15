@@ -8,70 +8,74 @@ import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.test.dataprovider.RMCountSuoZhan;
-import com.test.testdata.SummaryInfoAll;
-import com.test.testdata.SummaryInfoDmaAll;
+import com.test.oracledataprovider.AllOracleData;
+import com.test.oracledataprovider.RMCountSuoZhan;
+import com.test.pagedataprovidor.SummaryInfoAll;
+import com.test.pagedataprovidor.SummaryInfoDmaAll;
 import com.test.util.OperateProperties;
 
 public class InfoSummaryTests {
 	SummaryInfoDmaAll dmaALL;
-	Map<String,Integer>mapAll;
-	@BeforeGroups
-	public void beforeGroup(){}
+	Map<String,Integer>mapRMAll;//所有所站的考核表数量
+	Map<String,Integer>mapAll;//考核表，单位，未分配等总量
+	@BeforeGroups(groups= "CountAll")
+	public void beforeGroup(){
+		System.out.println("开始比对考核表，单位用户，未分配数量");
+	}
 	@BeforeTest
 	public void declare(){
-		new SummaryInfoAll();
-		SummaryInfoAll.setInfoAll();
+		SummaryInfoAll all=new SummaryInfoAll();
+		all.setInfoAll();
 		dmaALL=new SummaryInfoDmaAll();
-		dmaALL.setInfoDmaAll();
-		System.out.println("");
-		mapAll=new HashMap<String,Integer>();
+		dmaALL.setInfoDmaAll();//接口获得信息
+		
+		AllOracleData allOracleData = AllOracleData.getInstance();
+		mapAll=allOracleData.getAllTotalData();//考核表单位用户总量
+		mapRMAll=new HashMap<String,Integer>();
 		//所有所站表数量
-		mapAll.putAll(new RMCountSuoZhan().getRMSiteCount());
+		mapRMAll.putAll(new RMCountSuoZhan().getRMSiteCount());
 		//所有所站故障表数量
-		mapAll.putAll(new RMCountSuoZhan().getRMAlarmSiteCount());
+		mapRMAll.putAll(new RMCountSuoZhan().getRMAlarmSiteCount());
 		//所有所站dma数量
-		mapAll.putAll(new RMCountSuoZhan().getRMDmaCount());
+		mapRMAll.putAll(new RMCountSuoZhan().getRMDmaCount());
 		//所欲所站设备数量
-		mapAll.putAll(new RMCountSuoZhan().getRMDeviceCount());
+		mapRMAll.putAll(new RMCountSuoZhan().getRMDeviceCount());
 		//所有所站故障设备数量
-		mapAll.putAll(new RMCountSuoZhan().getRMAlarmDeviceCount());
+		mapRMAll.putAll(new RMCountSuoZhan().getRMAlarmDeviceCount());
 	}
-	@Test(enabled = false,groups= "CountAll" )
+	//比对考核表数量
+	@Test(groups= "CountAll",priority=1,enabled = true )
   	public void rmmeterCount() {
-		//比对考核表数量
-	  Assert.assertEquals(SummaryInfoAll.rm_count, SummaryInfoAll.listAll.get(0));
+	  Assert.assertEquals(mapAll.get("考核表总量"), SummaryInfoAll.listAll.get(0));
 	}
-	@Test(enabled = false)
+	//比对单位用户数量
+	@Test(groups= "CountAll",priority=2,enabled = true)
 	public void rbmeterCount() {
-		//比对单位用户数量
-	  Assert.assertEquals(SummaryInfoAll.rb_count, SummaryInfoAll.listAll.get(1));
-
+	  Assert.assertEquals(mapAll.get("单位用户总量"), SummaryInfoAll.listAll.get(1));
 	}
-	@Test(enabled = false)
-	public void noareaCount(){
-		//比对未分配数量
-		Assert.assertEquals(SummaryInfoAll.uasso_count,SummaryInfoAll.listAll.get(2));
-		
+	//比对未分配数量	
+	@Test(groups= "CountAll",priority=3,enabled = true)
+	public void noareaCount(){	
+		Assert.assertEquals(mapAll.get("未分配总量"),SummaryInfoAll.listAll.get(2));		
 	}
-	@Test(enabled = false)
-	public void rmalarm_Count(){
-		//比对考核表故障数量
-		Assert.assertEquals(SummaryInfoAll.rmalarm_count,SummaryInfoAll.listAll.get(3));
-		
+	
+	@Test(enabled = false,groups= "CountAll")
+	public void rmalarm_Count(){//比对考核表故障数量		
+		Assert.assertEquals(mapAll.get("考核表故障总量"),SummaryInfoAll.listAll.get(3));	
 	}
-	@Test(enabled = false)
-	public void rbalarm_Count(){
-		//比对单位用户故障数量
-		Assert.assertEquals(SummaryInfoAll.rbalarm_count,SummaryInfoAll.listAll.get(4));
+	@Test(enabled = false,groups= "CountAll")
+	public void rbalarm_Count(){//比对单位用户故障数量	
+		Assert.assertEquals(mapAll.get("单位用户故障总量"),SummaryInfoAll.listAll.get(4));
 	}
+	
+	
 	@Test(enabled = false)
 	public void dmaAllHeaders(){
 		//比对考核表表头
 		String dmaallheaders=OperateProperties.getValue("E:/test/workspace/testNG/config/applilcation.properties","dmaallheaders");
 		Assert.assertEquals(SummaryInfoDmaAll.headers.toString(), dmaallheaders);
 	}
-	@Test//(enabled = false)//比较闸北所
+	@Test(enabled = false)//比较闸北所
 	public void dmaAllHPCheck(){
 		/*名称：name
 		 * 表数量：value

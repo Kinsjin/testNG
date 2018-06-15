@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HttpClient {
-	public String doGet(String httpurl){
+	public String doGet(String httpurl,String cookies){
 		HttpURLConnection conn=null;
 		InputStream is = null;
 		BufferedReader br = null;
@@ -20,7 +20,7 @@ public class HttpClient {
 			URL url = new URL(httpurl);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
-			conn.setRequestProperty("Cookie","UISESSION=AC7D673B639F2E36842C6DD454FB6455");
+			conn.setRequestProperty("Cookie",cookies);
 			//connection.setConnectTimeout(15000);
 			//connection.setReadTimeout(60000);
 			conn.connect();

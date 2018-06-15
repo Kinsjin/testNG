@@ -5,15 +5,23 @@ import java.util.Map;
 import com.test.util.OperateProperties;
 
 public class GlobalSetting {
-	private static String hostname;
-	private static String port;
-	private static String baseURL;
-	private static int timeout;
-	private static String OracleUSERNAME;
-	private static String OraclePASSWORD;
-	private static String OracleDRIVER;
-	private static String OracleURL;
-	public GlobalSetting(){
+	private  String hostname;
+	private  String port;
+	private  String baseURL;
+	private  int timeout;
+	private  String OracleUSERNAME;
+	private  String OraclePASSWORD;
+	private  String OracleDRIVER;
+	private  String OracleURL;
+	private  String Cookie;
+	public static GlobalSetting instance;
+	public static GlobalSetting getInstance(){
+		if (instance == null) {
+			instance = new GlobalSetting();
+		}
+		return instance;
+	}
+	private GlobalSetting(){
 		Map <String,String>map;
 		map=OperateProperties.getAllProperties("E:/test/workspace/testNG/config/applilcation.properties");
 		hostname=map.get("hostname");
@@ -22,6 +30,7 @@ public class GlobalSetting {
 		OraclePASSWORD=map.get("datasource.password");
 		OracleDRIVER=map.get("datasource.driver-class-name");
 		OracleURL=map.get("datasource.url");
+		Cookie=map.get("cookie");
 	}
 	public  String getHostname(){
 		return hostname;
@@ -44,7 +53,10 @@ public class GlobalSetting {
 	public  String getOracleUrl(){
 		return OracleURL;
 	}
-	public static int timeOut(){
+	public  int timeOut(){
 		return timeout;
+	}
+	public  String getCookie(){
+		return Cookie;
 	}
 }
