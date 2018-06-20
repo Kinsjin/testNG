@@ -27,10 +27,12 @@ public class InfoSummaryTests {
 		SummaryInfoAll all=new SummaryInfoAll();
 		all.setInfoAll();
 		dmaALL=new SummaryInfoDmaAll();
-		dmaALL.setInfoDmaAll();//接口获得信息
+		//接口获得信息
+		dmaALL.setInfoDmaAll();
 		
 		AllOracleData allOracleData = AllOracleData.getInstance();
-		mapAll=allOracleData.getAllTotalData();//考核表单位用户总量
+		//考核表单位用户总量
+		mapAll=allOracleData.getAllTotalData();
 		mapRMAll=new HashMap<String,Integer>();
 		//所有所站表数量
 		mapRMAll.putAll(new RMCountSuoZhan().getRMSiteCount());
@@ -43,39 +45,40 @@ public class InfoSummaryTests {
 		//所有所站故障设备数量
 		mapRMAll.putAll(new RMCountSuoZhan().getRMAlarmDeviceCount());
 	}
+	//TotalCount组：考核表，单位用户，未分配，考核表故障，单位用户故障
 	//比对考核表数量
-	@Test(groups= "CountAll",priority=1,enabled = true )
+	@Test(groups= "TotalCount",priority=1,enabled = true )
   	public void rmmeterCount() {
 	  Assert.assertEquals(mapAll.get("考核表总量"), SummaryInfoAll.listAll.get(0));
 	}
 	//比对单位用户数量
-	@Test(groups= "CountAll",priority=2,enabled = true)
+	@Test(groups= "TotalCount",priority=2,enabled = true)
 	public void rbmeterCount() {
 	  Assert.assertEquals(mapAll.get("单位用户总量"), SummaryInfoAll.listAll.get(1));
 	}
 	//比对未分配数量	
-	@Test(groups= "CountAll",priority=3,enabled = true)
+	@Test(groups= "TotalCount",priority=3,enabled = false)
 	public void noareaCount(){	
 		Assert.assertEquals(mapAll.get("未分配总量"),SummaryInfoAll.listAll.get(2));		
 	}
 	
-	@Test(enabled = false,groups= "CountAll")
+	@Test(groups= "TotalCount",priority=3,enabled = false)
 	public void rmalarm_Count(){//比对考核表故障数量		
 		Assert.assertEquals(mapAll.get("考核表故障总量"),SummaryInfoAll.listAll.get(3));	
 	}
-	@Test(enabled = false,groups= "CountAll")
+	@Test(groups= "TotalCount",priority=3,enabled = false)
 	public void rbalarm_Count(){//比对单位用户故障数量	
 		Assert.assertEquals(mapAll.get("单位用户故障总量"),SummaryInfoAll.listAll.get(4));
 	}
 	
-	
-	@Test(enabled = false)
+	@Test(groups= "TotalCount",priority=3,enabled = false)
 	public void dmaAllHeaders(){
 		//比对考核表表头
 		String dmaallheaders=OperateProperties.getValue("E:/test/workspace/testNG/config/applilcation.properties","dmaallheaders");
 		Assert.assertEquals(SummaryInfoDmaAll.headers.toString(), dmaallheaders);
 	}
-	@Test(enabled = false)//比较闸北所
+	//分组考核表黄浦所以及站的明细
+	@Test(groups= "HPCount",priority=0,enabled = false)
 	public void dmaAllHPCheck(){
 		/*名称：name
 		 * 表数量：value
@@ -93,21 +96,45 @@ public class InfoSummaryTests {
 		 * 肯特故障数量:kfvalue
 		 */
 		//System.out.println(mapAll.get("黄浦供水管理所"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("name"), "黄浦");
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("value"),mapAll.get("黄浦供水管理所"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("dmaValue"),mapAll.get("黄浦供水管理所DMA"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("fvalue"),mapAll.get("黄浦供水管理所故障"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("svalue"),mapAll.get("黄浦供水管理所山科"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("tvalue"),mapAll.get("黄浦供水管理所拓安信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("lvalue"),mapAll.get("黄浦供水管理所立信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("nvalue"),mapAll.get("黄浦供水管理所宁波东海"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("kvalue"),mapAll.get("黄浦供水管理所肯特"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("sfvalue"),mapAll.get("黄浦供水管理所故障山科"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("tfvalue"),mapAll.get("黄浦供水管理所故障拓安信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("lfvalue"),mapAll.get("黄浦供水管理所故障立信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("nfvalue"),mapAll.get("黄浦供水管理所故障宁波东海"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("kfvalue"),mapAll.get("黄浦供水管理所故障肯特"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("name"), "黄浦");
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("value"),mapAll.get("黄浦供水管理所"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("dmaValue"),mapAll.get("黄浦供水管理所DMA"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("fvalue"),mapAll.get("黄浦供水管理所故障"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("svalue"),mapAll.get("黄浦供水管理所山科"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("tvalue"),mapAll.get("黄浦供水管理所拓安信"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("lvalue"),mapAll.get("黄浦供水管理所立信"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("nvalue"),mapAll.get("黄浦供水管理所宁波东海"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("kvalue"),mapAll.get("黄浦供水管理所肯特"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("sfvalue"),mapAll.get("黄浦供水管理所故障山科"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("tfvalue"),mapAll.get("黄浦供水管理所故障拓安信"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("lfvalue"),mapAll.get("黄浦供水管理所故障立信"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("nfvalue"),mapAll.get("黄浦供水管理所故障宁波东海"));
+		Assert.assertEquals(dmaALL.DmaSlist.get(0).get("kfvalue"),mapAll.get("黄浦供水管理所故障肯特"));
 	}
+	//比较半淞园站
+	@Test(groups= "ZBSYCount",priority=0,enabled = false)
+	public void dmaZBSYCheck(){
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("name"), "长江站");
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("value"),mapAll.get("长江站"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("dmaValue"),mapAll.get("长江站DMA"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("fvalue"),mapAll.get("长江站故障"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("svalue"),mapAll.get("长江站山科"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("tvalue"),mapAll.get("长江站安信"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("lvalue"),mapAll.get("长江站立信"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("nvalue"),mapAll.get("长江站宁波东海"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("kvalue"),mapAll.get("长江站肯特"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("sfvalue"),mapAll.get("长江站故障山科"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("tfvalue"),mapAll.get("长江站故障拓安信"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("lfvalue"),mapAll.get("长江站故障立信"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("nfvalue"),mapAll.get("长江站故障宁波东海"));
+		Assert.assertEquals(dmaALL.DmaZlist.get(0).get("kfvalue"),mapAll.get("长江站故障肯特"));
+	}
+	//比较瞿溪站
+	@Test(groups= "ZQXCount",priority=0,enabled = false)
+	public void dmaZQXCheck(){}
+	//比较新闸站
+	@Test(groups= "ZQXCount",priority=0,enabled = false)
+	public void dmaZXZCheck(){}
 	public void dmaAllXHCheck(){
 		/*Assert.assertEquals(dmaALL.DSlist.get(1).get("name"), "徐汇");
 		Assert.assertEquals(dmaALL.DSlist.get(1).get("value"),new CountSuoZhan().getRMSiteCount("徐汇供水管理所"));	
@@ -137,19 +164,6 @@ public class InfoSummaryTests {
 	public void dmaAllPTCheck(){}
 	@Test(enabled = false) //比较长江站站点
 	public void dmaAllHP_SITE_Check(){
-		Assert.assertEquals(dmaALL.DZlist.get(0).get("name"), "长江站");
-		Assert.assertEquals(dmaALL.DZlist.get(0).get("value"),mapAll.get("长江站"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("dmaValue"),mapAll.get("长江站DMA"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("fvalue"),mapAll.get("长江站故障"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("svalue"),mapAll.get("长江站山科"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("tvalue"),mapAll.get("长江站安信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("lvalue"),mapAll.get("长江站立信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("nvalue"),mapAll.get("长江站宁波东海"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("kvalue"),mapAll.get("长江站肯特"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("sfvalue"),mapAll.get("长江站故障山科"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("tfvalue"),mapAll.get("长江站故障拓安信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("lfvalue"),mapAll.get("长江站故障立信"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("nfvalue"),mapAll.get("长江站故障宁波东海"));
-		Assert.assertEquals(dmaALL.DSlist.get(0).get("kfvalue"),mapAll.get("长江站故障肯特"));
+
 	}
 }
